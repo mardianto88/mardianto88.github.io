@@ -1,6 +1,6 @@
 <?php
-$host = '103.94.0.70'; // Host di mana port forwarding terjadi
-$port = '3306'; // Port yang diforward ke MySQL server
+$host = '103.94.0.70'; // Alamat IP server MySQL
+$port = '3306'; // Port MySQL, default adalah 3306
 $dbname = 'tugas';
 $username = 'afika';
 $password = 'afika123';
@@ -9,10 +9,11 @@ $password = 'afika123';
 $mysqli = mysqli_connect($host, $username, $password, $dbname, $port);
 
 // Periksa koneksi
-if ($mysqli) {
+if (!$mysqli) {
+    echo "Koneksi gagal: " . mysqli_connect_error();
+} else {
     echo "Koneksi ke MySQL berhasil!";
-} 
-echo "Koneksi ke MySQL Tidak Konek!";
+}
 
 // Menutup koneksi
 mysqli_close($mysqli);

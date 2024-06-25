@@ -9,10 +9,10 @@ $password = 'afika123';
 $mysqli = mysqli_connect($host, $username, $password, $dbname, $port);
 
 // Periksa koneksi
-if (!$mysqli) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
-echo "Koneksi ke MySQL berhasil!";
+if ($mysqli) {
+    echo "Koneksi ke MySQL berhasil!";
+} 
+echo "Koneksi ke MySQL Tidak Konek!";
 
 // Menutup koneksi
 mysqli_close($mysqli);

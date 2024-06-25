@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Tugas Mahasiswa</title>
-</head>
-<body>
-    <h2>Upload Tugas Mahasiswa</h2>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <label for="file">Pilih file untuk diunggah:</label>
-        <input type="file" name="file" id="file" required><br><br>
-        <input type="submit" value="Upload Tugas" name="submit">
-    </form>
-</body>
-</html>
+<?php
+try {
+    $host = '103.94.0.70'; // Alamat IP server MySQL
+    $port = '3306'; // Port MySQL, default adalah 3306
+    $dbname = 'tugas';
+    $username = 'afika';
+    $password = 'afika123';
+
+    $dsn = "mysql:host=$host;port=$port;dbname=$dbname";
+
+    $options = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ];
+
+    $pdo = new PDO($dsn, $username, $password, $options);
+    echo "Koneksi ke MySQL berhasil!";
+} catch (PDOException $e) {
+    echo "Koneksi gagal: " . $e->getMessage();
+}
+?>

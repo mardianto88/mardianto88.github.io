@@ -1,21 +1,16 @@
 <?php
-try {
-    $host = '103.94.0.70'; // Alamat IP server MySQL
-    $port = '3306'; // Port MySQL, default adalah 3306
-    $dbname = 'tugas';
-    $username = 'afika';
-    $password = 'afika123';
+$host = '103.94.0.70'; // Host di mana port forwarding terjadi
+$port = '3306'; // Port yang diforward ke MySQL server
+$dbname = 'tugas';
+$username = 'afika';
+$password = 'afika123';
 
-    $dsn = "mysql:host=$host;port=$port;dbname=$dbname";
+// Membuat koneksi
+$mysqli = new mysqli($host, $username, $password, $dbname, $port);
 
-    $options = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ];
-
-    $pdo = new PDO($dsn, $username, $password, $options);
-    echo "Koneksi ke MySQL berhasil!";
-} catch (PDOException $e) {
-    echo "Koneksi gagal: " . $e->getMessage();
+// Periksa koneksi
+if ($mysqli->connect_error) {
+    die("Koneksi gagal: " . $mysqli->connect_error);
 }
+echo "Koneksi ke MySQL berhasil!";
 ?>

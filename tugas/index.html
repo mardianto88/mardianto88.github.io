@@ -6,11 +6,14 @@ $username = 'afika';
 $password = 'afika123';
 
 // Membuat koneksi
-$mysqli = new mysqli($host, $username, $password, $dbname, $port);
+$mysqli = mysqli_connect($host, $username, $password, $dbname, $port);
 
 // Periksa koneksi
-if ($mysqli->connect_error) {
-    die("Koneksi gagal: " . $mysqli->connect_error);
+if (!$mysqli) {
+    die("Koneksi gagal: " . mysqli_connect_error());
 }
 echo "Koneksi ke MySQL berhasil!";
+
+// Menutup koneksi
+mysqli_close($mysqli);
 ?>

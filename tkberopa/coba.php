@@ -32,34 +32,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pengiriman Email</title>
-</head>
-<body>
-    <h2>Kirim Pesan</h2>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
-        <label for="name">Nama:</label><br>
-        <input type="text" id="name" name="name"><br><br>
-
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
-
-        <label for="message">Pesan:</label><br>
-        <textarea id="message" name="message"></textarea><br><br>
-
-        <input type="submit" value="Kirim">
-    </form>
-
-    <?php
-    // Tampilkan pesan sukses atau error
-    if (!empty($status)) {
-        echo "<p>$status</p>";
-    }
-    ?>
-</body>
-</html>

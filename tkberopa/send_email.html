@@ -1,97 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery with Pagination</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Lightbox CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Selamat Datang - TK Beropa</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon1.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Gallery Lightbox CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+
+  <!-- Gallery Custom CSS -->
   <style>
-    .gallery-item {
-      margin-bottom: 30px;
+    .photo-gallery .row {
+      margin-left: -5px;
+      margin-right: -5px;
     }
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+
+    .photo-gallery .item {
+      padding: 5px;
+    }
+
+    .photo-gallery .item img {
+      max-width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .photo-gallery .item img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
-<body>
 
-<div class="container mt-4">
+<body class="index-page">
 
-  <!-- Gallery -->
-  <div class="row" id="gallery">
-    <div class="col-md-4 col-lg-3 gallery-item">
-      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery" data-title="Image 1">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
-      </a>
-    </div>
-    <div class="col-md-4 col-lg-3 gallery-item">
-      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery" data-title="Image 2">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
-      </a>
-    </div>
-    <div class="col-md-4 col-lg-3 gallery-item">
-      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery" data-title="Image 3">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
-      </a>
-    </div>
-    <div class="col-md-4 col-lg-3 gallery-item">
-      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery" data-title="Image 4">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
-      </a>
-    </div>
-    <div class="col-md-4 col-lg-3 gallery-item">
-      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery" data-title="Image 5">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
-      </a>
-    </div>
-    <div class="col-md-4 col-lg-3 gallery-item">
-      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery" data-title="Image 6">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
-      </a>
-    </div>
-    <!-- Add more gallery items as needed -->
-  </div>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <!-- Header content here -->
+  </header>
 
-  <!-- Pagination -->
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center mt-4" id="pagination">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+  <main class="main">
 
-</div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <!-- Hero content here -->
+    </section><!-- /Hero Section -->
 
-<!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Bootstrap Lightbox -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
-<script>
-  $(document).ready(function() {
-    // Initialize Bootstrap Lightbox
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        alwaysShowClose: true
-      });
-    });
-  });
-</script>
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section light-background">
+      <!-- Featured services content here -->
+    </section><!-- /Featured Services Section -->
 
-</body>
-</html>
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <!-- About content here -->
+    </section><!-- /About Section -->
+
+    <!-- Features Details Section -->
+    <section id="features" class="features section">
+      <!-- Features details content here -->
+    </section><!-- /Features Details Section -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery TK Beropa</h2>
+        <p>Gallery Belajar, Bermain, TK Beropa Kelurahan Sikeli Kabupaten Bombana</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="photo-gallery" data-aos="fade-up" data-aos-delay="100">
+          <div class="row photos">
+            <!-- Gallery items here -->
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/8.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/8.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/2.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/2.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/4.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/4.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/5.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/5.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/6.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/6.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/7.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/7.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/9.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/9.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/10.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/10.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/11.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/11.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/12.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/12.jpeg" alt="Gallery Image"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="assets/img/gallery/13.jpeg" data-lightbox="photos"><img class="img-fluid" src="assets/img/gallery/13.jpeg" alt="Gallery Image"></a></div>
+            <!-- Pagination links -->
+            <div class="pagination-container mt-5">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <!-- Placeholder for pagination links -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Gallery Section -->
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
+      <!-- FAQ content here -->
+    </section><!-- /Faq Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <!-- Contact content here -->
+    </section><!-- /Contact Section -->
+
+  </main><!-- End #main -->
+
+  <footer id="footer" class="footer">
+    <!-- Footer content here -->
+  </footer><!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Gallery Lightbox JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+  <!-- Custom JS for Gallery Pagination -->
+  <script>
+    // Function to create pagination links
+    function createPaginationLinks(totalPages) {
+      let paginationContainer = document.querySelector('.pagination');
+      for (let i = 1; i <= totalPages; i++) {
+        let li = document.createElement('li');
+        li.classList.add('page-item');
+        let a = document.createElement('a');
+        a.classList.add('page-link');
+        a.href = '#';
+        a.textContent = i;
+        li.appendChild(a);
+        paginationContainer.appendChild(li);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const itemsPerPage = 12

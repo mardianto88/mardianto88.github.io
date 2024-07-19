@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Gallery with Modal</title>
+  <title>Bootstrap Gallery with Pagination</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <style>
@@ -20,68 +20,121 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="text-center my-4">Bootstrap Gallery</h1>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <img src="assets/img/gallery/1.jpeg" alt="Image 1" data-toggle="modal" data-target="#modal1">
-        </div>
-        <!-- Modal 1 -->
-        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <img src="https://via.placeholder.com/600" class="img-fluid" alt="Large Image 1">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <img src="https://via.placeholder.com/300" alt="Image 2" data-toggle="modal" data-target="#modal2">
-        </div>
-        <!-- Modal 2 -->
-        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <img src="https://via.placeholder.com/600" class="img-fluid" alt="Large Image 2">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <img src="https://via.placeholder.com/300" alt="Image 3" data-toggle="modal" data-target="#modal3">
-        </div>
-        <!-- Modal 3 -->
-        <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <img src="https://via.placeholder.com/600" class="img-fluid" alt="Large Image 3">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <h1 class="text-center my-4">Bootstrap Gallery with Pagination</h1>
+
+    <div id="gallery" class="row">
+      <!-- Placeholder untuk galeri gambar -->
     </div>
+
+    <nav id="pagination" aria-label="Page navigation example">
+      <ul class="pagination justify-content-center mt-4">
+        <li class="page-item disabled" id="prevPage">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
   </div>
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-D2eC/Cq2JgJ9snA+B5c/XdO5Y+EPH0F0kO/2kKCZkm1K3GUZnKCQp1nI8y/RJEq" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh5RsWzA8wIVmRD/hK8th3TlXZZO4tx/6+99t" crossorigin="anonymous"></script>
+  
+  <script>
+    $(document).ready(function() {
+      // Data gambar untuk galeri (ganti dengan gambar sesuai kebutuhan)
+      var images = [
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300"
+      ];
+
+      // Ambil elemen galeri dan paginasi
+      var galleryElement = $('#gallery');
+      var paginationElement = $('#pagination');
+
+      // Atur jumlah item per halaman
+      var itemsPerPage = 6;
+
+      // Hitung total halaman
+      var totalPages = Math.ceil(images.length / itemsPerPage);
+
+      // Fungsi untuk menampilkan item pada halaman tertentu
+      function showPage(page) {
+        // Hitung indeks awal dan akhir item pada halaman tertentu
+        var startIndex = (page - 1) * itemsPerPage;
+        var endIndex = startIndex + itemsPerPage;
+
+        // Kosongkan galeri sebelum menambahkan item baru
+        galleryElement.empty();
+
+        // Loop untuk menambahkan item ke galeri
+        for (var i = startIndex; i < endIndex && i < images.length; i++) {
+          var imageUrl = images[i];
+          var html = `
+            <div class="col-md-4 mb-4">
+              <div class="thumbnail">
+                <img src="${imageUrl}" alt="Image ${i + 1}" data-toggle="modal" data-target="#modal${i + 1}">
+              </div>
+            </div>
+          `;
+          galleryElement.append(html);
+        }
+      }
+
+      // Panggil fungsi showPage untuk menampilkan halaman pertama saat halaman dimuat
+      showPage(1);
+
+      // Tombol Next
+      paginationElement.find('.page-link:contains("Next")').click(function(e) {
+        e.preventDefault();
+        var currentPage = parseInt(paginationElement.find('.active .page-link').text());
+        var nextPage = currentPage + 1;
+        if (nextPage <= totalPages) {
+          paginationElement.find('.active').removeClass('active').next().addClass('active');
+          showPage(nextPage);
+        }
+        checkPagination();
+      });
+
+      // Tombol Previous
+      paginationElement.find('.page-link:contains("Previous")').click(function(e) {
+        e.preventDefault();
+        var currentPage = parseInt(paginationElement.find('.active .page-link').text());
+        var prevPage = currentPage - 1;
+        if (prevPage >= 1) {
+          paginationElement.find('.active').removeClass('active').prev().addClass('active');
+          showPage(prevPage);
+        }
+        checkPagination();
+      });
+
+      // Fungsi untuk memeriksa dan menonaktifkan tombol previous dan next
+      function checkPagination() {
+        var currentPage = parseInt(paginationElement.find('.active .page-link').text());
+        if (currentPage === 1) {
+          $('#prevPage').addClass('disabled');
+        } else {
+          $('#prevPage').removeClass('disabled');
+        }
+        if (currentPage === totalPages) {
+          $('#nextPage').addClass('disabled');
+        } else {
+          $('#nextPage').removeClass('disabled');
+        }
+      }
+    });
+  </script>
 </body>
 </html>

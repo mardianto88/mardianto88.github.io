@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Contact Us</h2>
-    <form action="send_email.php" method="POST">
+    <form id="contactForm" action="https://mardianto.cloud/tkberopa/send_email.html/mardianto.usn88@gmail.com" method="POST">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br><br>
 
@@ -19,5 +19,18 @@
 
         <input type="submit" value="Send">
     </form>
+
+    <script>
+        // Optional: Add JavaScript validation or interaction here
+        // Example: You can use JavaScript to prevent form submission before validation
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            // Example: You can add custom validation logic here
+            // Then submit the form programmatically if validated
+            form.submit();
+        });
+    </script>
 </body>
 </html>

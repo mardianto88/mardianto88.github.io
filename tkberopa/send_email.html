@@ -1,12 +1,78 @@
-<form action="https://formspree.io/your_email_here" method="POST">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery with Pagination</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .gallery-item {
+      margin-bottom: 30px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
 
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+<div class="container mt-4">
 
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" required></textarea><br><br>
+  <!-- Gallery -->
+  <div class="row" id="gallery">
+    <div class="col-md-4 col-lg-3 gallery-item">
+      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery">
+        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
+      </a>
+    </div>
+    <div class="col-md-4 col-lg-3 gallery-item">
+      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery">
+        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
+      </a>
+    </div>
+    <div class="col-md-4 col-lg-3 gallery-item">
+      <a href="https://via.placeholder.com/600x400" data-toggle="lightbox" data-gallery="gallery">
+        <img src="https://via.placeholder.com/600x400" class="img-fluid rounded">
+      </a>
+    </div>
+    <!-- Add more gallery items as needed -->
+  </div>
 
-    <input type="submit" value="Send">
-</form>
+  <!-- Pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-4" id="pagination">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
+
+<!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Bootstrap Lightbox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Initialize Bootstrap Lightbox
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  });
+</script>
+
+</body>
+</html>

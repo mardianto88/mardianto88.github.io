@@ -168,4 +168,44 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      const itemsPerPage = 12
+      const itemsPerPage = 12; // Number of items per page
+      const gallery = document.querySelector('.photo-gallery .row.photos');
+      const photos = Array.from(gallery.querySelectorAll('.item'));
+      const paginationContainer = document.querySelector('.pagination');
+      let currentPage = 1;
+
+      function showItems(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        gallery.innerHTML = ''; // Clear existing items
+        const paginatedItems = photos.slice(start, end);
+        paginatedItems.forEach(item => {
+          gallery.appendChild(item);
+        });
+      }
+
+      // Calculate total number of pages
+      const totalPages = Math.ceil(photos.length / itemsPerPage);
+
+      // Show initial items
+      showItems(currentPage);
+
+      // Create pagination links
+      createPaginationLinks(totalPages);
+
+      // Pagination click event listener
+      paginationContainer.addEventListener('click', function (event) {
+        if (event.target.tagName === 'A') {
+          event.preventDefault();
+          currentPage = parseInt(event.target.textContent);
+          showItems(currentPage);
+          // Optionally, scroll to the top of the gallery section after page change
+          gallery.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -3,35 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Gallery Example</title>
+  <title>Bootstrap Gallery with Modal</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+    .thumbnail {
+      height: 200px; /* Tinggi gambar mini */
+      overflow: hidden; /* Menyembunyikan bagian gambar yang keluar */
+    }
+    .thumbnail img {
+      width: 100%; /* Gambar di dalam thumbnail menyesuaikan lebar parent */
+      object-fit: cover; /* Memastikan gambar tetap proporsional dan penuh */
+      cursor: pointer; /* Ubah kursor saat diarahkan ke gambar */
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1 class="text-center my-4">Bootstrap Gallery</h1>
     <div class="row">
       <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Image 1">
-          <div class="card-body">
-            <p class="card-text">Image 1 description.</p>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/300" alt="Image 1" data-toggle="modal" data-target="#modal1">
+        </div>
+        <!-- Modal 1 -->
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="https://via.placeholder.com/600" class="img-fluid" alt="Large Image 1">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Image 2">
-          <div class="card-body">
-            <p class="card-text">Image 2 description.</p>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/300" alt="Image 2" data-toggle="modal" data-target="#modal2">
+        </div>
+        <!-- Modal 2 -->
+        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="https://via.placeholder.com/600" class="img-fluid" alt="Large Image 2">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Image 3">
-          <div class="card-body">
-            <p class="card-text">Image 3 description.</p>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/300" alt="Image 3" data-toggle="modal" data-target="#modal3">
+        </div>
+        <!-- Modal 3 -->
+        <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="https://via.placeholder.com/600" class="img-fluid" alt="Large Image 3">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -40,7 +81,7 @@
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-D2eC/Cq2JgjJ9snA+B5c/XdO5Y+EPH0F0kO/2kKCZkm1K3GUZnKCQp1nI8y/RJEq" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-D2eC/Cq2JgJ9snA+B5c/XdO5Y+EPH0F0kO/2kKCZkm1K3GUZnKCQp1nI8y/RJEq" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh5RsWzA8wIVmRD/hK8th3TlXZZO4tx/6+99t" crossorigin="anonymous"></script>
 </body>
 </html>
